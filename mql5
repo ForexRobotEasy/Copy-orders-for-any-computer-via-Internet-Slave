@@ -1,0 +1,136 @@
+mql5
+//+------------------------------------------------------------------+
+//|                 Copy orders for any computer via Internet Slave   |
+//|                                                                  |
+//|                     Developer's site: forexroboteasy.com          |
+//|                                                                  |
+//|                        Development by: Forex Robot Easy Team      |
+//+------------------------------------------------------------------+
+#property strict
+
+//+------------------------------------------------------------------+
+//|                        Global Variables                          |
+//+------------------------------------------------------------------+
+string server_IP = '192.168.1.100'; // IP address of the master computer
+int server_Port = 1234; // Port number of the master computer
+bool isConnected = false; // Flag to track connection status
+
+//+------------------------------------------------------------------+
+//|                       Initialization                             |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Connect to the master computer
+    ConnectToServer();
+    
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                      Copy Orders Function                        |
+//+------------------------------------------------------------------+
+void CopyOrders()
+{
+    // Check if connected to the master computer
+    if(isConnected)
+    {
+        // Copy orders from the master computer
+        // Code to copy orders goes here
+        // ...
+        // ...
+        
+        // Display success message
+        Print('Orders copied successfully!');
+    }
+    else
+    {
+        // Display error message if not connected
+        Print('Error: Not connected to the master computer!');
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                     Modify Orders Function                       |
+//+------------------------------------------------------------------+
+void ModifyOrders()
+{
+    // Check if connected to the master computer
+    if(isConnected)
+    {
+        // Modify stop loss and take profit levels of the copied orders
+        // Code to modify orders goes here
+        // ...
+        // ...
+        
+        // Display success message
+        Print('Orders modified successfully!');
+    }
+    else
+    {
+        // Display error message if not connected
+        Print('Error: Not connected to the master computer!');
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                      Close Orders Function                       |
+//+------------------------------------------------------------------+
+void CloseOrders()
+{
+    // Check if connected to the master computer
+    if(isConnected)
+    {
+        // Close the copied orders
+        // Code to close orders goes here
+        // ...
+        // ...
+        
+        // Display success message
+        Print('Orders closed successfully!');
+    }
+    else
+    {
+        // Display error message if not connected
+        Print('Error: Not connected to the master computer!');
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                    Connect to Server Function                    |
+//+------------------------------------------------------------------+
+void ConnectToServer()
+{
+    // Code to establish connection with the master computer
+    // ...
+    // ...
+    
+    // Set connection status to true
+    isConnected = true;
+}
+
+//+------------------------------------------------------------------+
+//|                       Expert Advisor Start                       |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+    // Copy orders
+    CopyOrders();
+    
+    // Modify orders
+    ModifyOrders();
+    
+    // Close orders
+    CloseOrders();
+    
+    // Disconnect from the master computer
+    isConnected = false;
+}
+
+//+------------------------------------------------------------------+
+//|                      Expert Advisor Deinit                       |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Disconnect from the master computer
+    isConnected = false;
+}
